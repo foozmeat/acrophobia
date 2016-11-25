@@ -389,6 +389,7 @@ GameObject:
   - 124: {fileID: 903815045}
   - 81: {fileID: 903815044}
   - 114: {fileID: 903815049}
+  - 114: {fileID: 903815050}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -475,12 +476,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be540c4794ae44af09358ea8a36f7b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clampInDegrees: {x: 360, y: 180}
+  clampInDegrees: {x: 360, y: 80}
   sensitivity: {x: 2, y: 2}
   smoothing: {x: 3, y: 3}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
   characterBody: {fileID: 0}
+--- !u!114 &903815050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903815043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896dbc5493ef7413da3a8c7499831bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2131436909}
 --- !u!1 &914998402
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +817,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2131436909}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -873,7 +886,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!1 &2137553568
 GameObject:
