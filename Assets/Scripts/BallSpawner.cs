@@ -10,7 +10,7 @@ public class BallSpawner : MonoBehaviour
 
 	private GameObject balls;
 	private int i;
-	private bool running;
+//	private bool running;
 	private int ball_x;
 
 	void Start()
@@ -29,7 +29,6 @@ public class BallSpawner : MonoBehaviour
 
 	IEnumerator LaunchBalls()
 	{
-		running = true;
 		while (i <= ball_count)
 		{
 			if (Random.value >= .05) {
@@ -51,6 +50,5 @@ public class BallSpawner : MonoBehaviour
 			yield return null;
 			i++;
 		}
-		running = false;
 	}
 }

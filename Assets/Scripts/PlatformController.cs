@@ -8,7 +8,7 @@ public class PlatformController : MonoBehaviour {
 	private Rigidbody rb;
 	private Vector3 initialPosition;
 	private Vector3 destination;
-	private int move_limit = 2;
+	private int move_limit = 1;
 
 
 	// Use this for initialization
@@ -20,13 +20,12 @@ public class PlatformController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-
-		Vector3 move = new Vector3(0f,0f,0f);
+	void Update () {
 
 		if (Input.GetKey (KeyCode.Q)) { // Up
 			
 			destination += new Vector3(0f,speed,0f);
+//			rb.AddForce(transform.up * speed);
 
 		} else if (Input.GetKey(KeyCode.E)) { // Down
 
@@ -48,8 +47,10 @@ public class PlatformController : MonoBehaviour {
 			transform.position = initialPosition;
 			destination = initialPosition;
 		}
-//		rb.MovePosition (destination);
-		transform.position = Vector3.Lerp(transform.position, destination, speed * Time.deltaTime);
+
+//		rb.MovePosition(transform.position + destination * Time.deltaTime);
+
+		rb.position = Vector3.Lerp(transform.position, destination, speed * Time.deltaTime);
 
 	}
 

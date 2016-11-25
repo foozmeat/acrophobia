@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
 	public float speed;
+
 	private Vector3 initialPosition;
 	private Quaternion initialRotation;
 
@@ -23,15 +24,23 @@ public class PlayerController : MonoBehaviour {
 			rb.transform.rotation = initialRotation;
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero; 
-
 		}
+
+		float fYRot = Camera.main.transform.eulerAngles.y;
+		transform.eulerAngles = new Vector3( transform.eulerAngles.x, fYRot, transform.eulerAngles.z );
 
 	}
 
 	void FixedUpdate() {
-		Vector3 move = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+		
+		if (Input.GetAxis ("Vertical") != 0) {
+			rb.AddForce(transform.forward * speed * Input.GetAxis ("Vertical"));
+		}
 
-		rb.transform.position += move * speed * Time.deltaTime;
+		if (Input.GetAxis ("Horizontal") != 0) {
+			rb.AddForce(transform.right * speed * Input.GetAxis ("Horizontal"));
+		}
+
 
 	}
 }
