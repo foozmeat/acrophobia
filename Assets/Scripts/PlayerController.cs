@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		initialPosition = rb.transform.position;
 		initialRotation = rb.transform.rotation;
-		rb.centerOfMass = new Vector3 (0, -2, 0);
+		rb.centerOfMass = new Vector3 (0, -1, 0);
 	}
 
 	void Update ()

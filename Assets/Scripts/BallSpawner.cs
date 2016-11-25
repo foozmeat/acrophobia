@@ -5,41 +5,38 @@ public class BallSpawner : MonoBehaviour
 {
 	public GameObject prefab;
 	public Material[] materials;
+	public int ball_count;
+	public int ball_speed;
+
 	private GameObject balls;
 	private int i;
 	private bool running;
 	private int ball_x;
-	private int ball_speed;
 
 	void Start()
 	{
 		balls = new GameObject();
 		balls.name = "Balls";
 		i = 1;
-		ball_x = -10;
-		ball_speed = 400;
+		ball_x = -20;
 
 		StartCoroutine(LaunchBalls());
 	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.KeypadPlus) && !running)
-		{
-			StartCoroutine(LaunchBalls());
-		}
 	}
 
 	IEnumerator LaunchBalls()
 	{
 		running = true;
-		while (!Input.GetKeyDown(KeyCode.KeypadMinus) && i < 400)
+		while (i <= ball_count)
 		{
 			if (Random.value >= .05) {
 				ball_x *= -1;
 				ball_speed *= -1;
 			}
-			Vector3 pos = new Vector3(ball_x, 6, Random.Range(-8, 8));
+			Vector3 pos = new Vector3(ball_x, 6, Mathf.Ceil(Random.Range(-18, 18)));
 			Vector3 force = new Vector3(ball_speed, 0, 0);
 
 			GameObject ball = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
