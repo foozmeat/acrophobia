@@ -35,7 +35,7 @@ public class BallSpawner : MonoBehaviour
 				ball_x *= -1;
 				ball_speed *= -1;
 			}
-			Vector3 pos = new Vector3(ball_x, 6, Mathf.Ceil(Random.Range(-18, 18)));
+			Vector3 pos = new Vector3(ball_x, 6.5f, Mathf.Ceil(Random.Range(-18, 18)));
 			Vector3 force = new Vector3(ball_speed, 0, 0);
 
 			GameObject ball = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
